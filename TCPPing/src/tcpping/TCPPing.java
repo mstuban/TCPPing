@@ -43,18 +43,25 @@ public class TCPPing {
 					socketPort = Integer.parseInt(args[4]);
 				} catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
 					help();
+					terminate();
 				}
 				catcher.receiveMessage(socketBindAddress, socketPort);
 			} else if (!args[0].equals("-c") && !args[0].equals("-p")) {
 				help();
+				terminate();
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			help();
+			terminate();
 		}
 	}
 
 	public static void help() {
 		System.out.println(
 				"Wrong format. Use the following formats:\nPitcher mode: java tcpping.TCPPing -p -port <socket port number> -mps <messages per second> -size <message size> <hostname>\nCatcher mode: java tcpping.TCPPing -c -bind <socket bind address> -port <socket port number>");
+	}
+	
+	public static void terminate(){
+		System.exit(0);
 	}
 }

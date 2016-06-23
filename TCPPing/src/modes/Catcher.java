@@ -59,7 +59,7 @@ public class Catcher {
 
 				} catch (SocketTimeoutException | SocketException e) {
 					System.out.println("Connection terminated by pitcher!");
-					return;
+					terminate();
 				}
 			}
 		} catch (IOException e1) {
@@ -101,4 +101,7 @@ public class Catcher {
 		return builder.toString();
 	}
 
+	public void terminate() {
+		System.exit(0);
+	}
 }
