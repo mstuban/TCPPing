@@ -1,0 +1,60 @@
+package tcpping;
+
+import modes.Catcher;
+import modes.Pitcher;
+
+public class TCPPing {
+
+	public static void main(String[] args) {
+
+		@SuppressWarnings("unused")
+		String runningMode;
+		// Setting default port value
+		Integer socketPort = 9900;
+		String socketBindAddress;
+		// Setting default values of messagesPerSecond and messageSize
+		Integer messagesPerSecond = 1;
+		Integer messageSize = 300;
+		String hostname;
+
+		Pitcher pitcher = new Pitcher();
+		Catcher catcher = new Catcher();
+		// Parsing parameters from the command line
+		try {
+			runningMode = args[0];
+			if (args[0].equals("-p")) {
+				try {
+					socketPort = Integer.parseInt(args[2]);
+					messagesPerSecond = Integer.parseInt(args[4]);
+					messageSize = Integer.parseInt(args[6]);
+					if (messageSize < 50 || messageSize > 3000) {
+						System.out.println(
+								"Message size out of range! It cannot be more than 3000 bytes and less than 50 bytes.");
+						return;
+					}
+					hostname = args[7];
+					pitcher.sendMessage(hostname, socketPort, messageSize, messagesPerSecond);
+				} catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+					help();
+				}
+			} else if (args[0].equals("-c")) {
+				socketBindAddress = args[2];
+				try {
+					socketPort = Integer.parseInt(args[4]);
+				} catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+					help();
+				}
+				catcher.receiveMessage(socketBindAddress, socketPort);
+			} else if (!args[0].equals("-c") && !args[0].equals("-p")) {
+				help();
+			}
+		} catch (ArrayIndexOutOfBoundsException e) {
+			help();
+		}
+	}
+
+	public static void help() {
+		System.out.println(
+				"Wrong format. Use the following formats:\nPitcher mode: java TCPPing -p -port <socket port number> -mps <messages per second> -size <message size> <hostname>\nCatcher mode: java TCPPing -c -bind <socket bind address> -port <socket port number>");
+	}
+}
