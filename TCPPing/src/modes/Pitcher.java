@@ -91,12 +91,13 @@ public class Pitcher {
 	private void printStatsEverySecond() {
 		this.printTask = new TimerTask() {
 			public void run() {
-				printTime();
+				Calendar cal = Calendar.getInstance();
+				SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
 				new Columns()
-						.addLine("Messages", "Messages(prev. sec)", "A->B", "B->A", "RTT", "Max A->B", "Max B->A",
-								"Max RTT")
-						.addLine(messageNumberSum.toString(),
+						.addLine("Time", "Messages", "Messages(prev. sec)", "A->B", "B->A", "RTT", "Max A->B",
+								"Max B->A", "Max RTT")
+						.addLine(sdf.format(cal.getTime()), messageNumberSum.toString(),
 								(messagesSentInThePreviousSecond > 0 ? Integer.toString(messagesSentInThePreviousSecond)
 										: "0"),
 								formatDecimalValue(previousSecondTimeAToB), formatDecimalValue(previousSecondTimeBToA),

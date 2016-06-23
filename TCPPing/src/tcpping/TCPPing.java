@@ -55,6 +55,6 @@ public class TCPPing {
 
 	public static void help() {
 		System.out.println(
-				"Wrong format. Use the following formats:\nPitcher mode: java TCPPing -p -port <socket port number> -mps <messages per second> -size <message size> <hostname>\nCatcher mode: java TCPPing -c -bind <socket bind address> -port <socket port number>");
+				"Wrong format. Use the following formats:\nPitcher mode: java tcpping.TCPPing -p -port <socket port number> -mps <messages per second> -size <message size> <hostname>\nCatcher mode: java tcpping.TCPPing -c -bind <socket bind address> -port <socket port number>");
 	}
 }
