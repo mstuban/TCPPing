@@ -1,5 +1,5 @@
 # TCPPing
-A TCP ping application. Used to send data from one PC to another using sockets and the client-server architecture.
+A TCP ping application used to send data from one PC to another using sockets and the client-server architecture.
 
 <b>Instructions on running TCPPing.java from the console:</b><br/>
 <b>1.</b> Clone to local directory<br/>
