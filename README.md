@@ -5,11 +5,11 @@ A TCP ping application. Used to send data from one PC to another using sockets a
 * built with Maven
 
 
-Instructions on running TCPPing.java from the console:
-1. Clone to local directory
-2. Navigate to TCPPing/src/ in cmd.exe
-3. Execute these commands on two computers:
-  Pitcher side: java tcpping.TCPPing -p -port <port> -mps <messages per second> -size <message size> <hostname> 
+Instructions on running TCPPing.java from the console:<br/>
+1. Clone to local directory<br/>
+2. Navigate to TCPPing/src/ in cmd.exe <br/>
+3. Execute these commands on two computers: <br/>
+  Pitcher side: java tcpping.TCPPing -p -port <port> -mps <messages per second> -size <message size> <hostname> <br/>
   Catcher side: java tcpping.TCPPing -c -bind <socket bind address> -port <port>
 
 Parameters:
