@@ -9,8 +9,8 @@ Instructions on running TCPPing.java from the console:<br/>
 <b>1.</b> Clone to local directory<br/>
 <b>2.</b> Navigate to TCPPing/src/ in cmd.exe <br/>
 <b>3.</b> Execute these commands on two computers: <br/>
-  Pitcher side: java tcpping.TCPPing -p -port <port> -mps <messages per second> -size <message size> <hostname> <br/>
-  Catcher side: java tcpping.TCPPing -c -bind <socket bind address> -port <port>
+ <b>Pitcher side:</b> java tcpping.TCPPing -p -port <port> -mps <messages per second> -size <message size> <hostname> <br/>
+  <b>Catcher side:</b> java tcpping.TCPPing -c -bind <socket bind address> -port <port>
 
 Parameters:
 * <b>p</b>, <b>c</b> - mode in which the software executes(pitcher or catcher mode)
