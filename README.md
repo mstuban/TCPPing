@@ -8,7 +8,7 @@ A TCP ping application used to send data from one PC to another using sockets an
  <b>Pitcher side:</b> java tcpping.TCPPing -p -port port -mps messages per second -size message size hostname <br/>
   <b>Catcher side:</b> java tcpping.TCPPing -c -bind socket bind address -port port
 
-<b>Tips:</b> <br/>Execute the catcher side first, abd then the pitcher side. Otherwise, the pitcher will search for a connection which is not available.
+<b>Tips:</b> <br/>Execute the catcher side first, and then the pitcher side. Otherwise, the pitcher will search for a connection which is not available.
 
 <b>Parameters:</b>
 * <b>p</b>, <b>c</b> - mode in which the software executes(pitcher or catcher mode)
